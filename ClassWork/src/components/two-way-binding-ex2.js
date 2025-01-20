@@ -4,6 +4,8 @@ export function TwoWayBindingEx2 () {
     const [categories, SetCategories] = useState([])
     const [products, SetProducts] = useState([])
     const [cartItems, setCartItems] = useState([])
+    const [cartItemsCount, setCartItemsCount] = useState(0)
+    const [cartPrice, setCartPrice] = useState(0)
 
     function loadCategories () {
         fetch('https://fakestoreapi.com/products/categories')
@@ -45,12 +47,31 @@ export function TwoWayBindingEx2 () {
         fetch(`https://fakestoreapi.com/products/${e.target.id}`)
         .then(res => res.json())
         .then(data => {
-            setCartItems(data)
+            cartItems.push(data)
+            setCartItemsCount(cartItems.length)
+
+            setCartPrice(cartPrice+data.price)
             
             // Why both are NOT same..?
             console.log(data)
             console.log(cartItems)      // Is it due to fetch method..!
         })
+        alert("Item Added to Cart")
+    }
+
+    // Cart Items Deletion
+    function handleCartItemDeletion (e) {
+        let cartId = e.target.id
+        itemDeletion = cartItems.filter(item => item.id!=cartId)
+        setCartItems(itemDeletion)
+        setCartItemsCount(itemDeletion.length)
+    }
+
+    // Delete all function
+    function handleCartDeletion () {
+        setCartItems([])
+        setCartItemsCount(0)
+        setCartPrice(0)
     }
 
     return (
@@ -71,10 +92,10 @@ export function TwoWayBindingEx2 () {
                         </select>
                     </div>
                 </nav>
-                <main className="col-8 d-flex flex-wrap overflow-auto" style={{height:'90vh'}}>
+                <main className="col-7 d-flex flex-wrap overflow-auto" style={{height:'90vh'}}>
                         {
                             products.map(item => 
-                                <div className="card m-2 p-2 w-25">
+                                <div className="card m-2 p-2" style={{width:'250px'}}>
                                     <img src={item.image} className="card-img-top" height={150} />
                                     <div className="card-header h-25">
                                         <p>{item.title}</p>
@@ -97,11 +118,49 @@ export function TwoWayBindingEx2 () {
                             )
                         }
                 </main>
-                <aside className="col-2">
+                <aside className="col-3">
                     <div>
-                        <button className="btn btn-danger w-100">
-                            <span className="bi bi-cart4"></span> [ {cartItems.length} ] Cart Items
+                        <button className="btn btn-secondary w-100">
+                            <span className="bi bi-cart4"></span> [ {cartItemsCount} ] Cart Items
                         </button>
+                    </div>
+                    <div>
+                        <table className="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Preview</th>
+                                    <th>
+                                        <button className="btn btn-outline-danger" onClick={handleCartDeletion}>
+                                            delete all <span className="bi bi-trash2"></span>
+                                        </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    cartItems.map(item => 
+                                        <tr>
+                                            <td>{item.title}</td>
+                                            <td>{item.price}</td>
+                                            <td><img src={item.image} width={50} height={50}/></td>
+                                            <td>
+                                                <button className="btn btn-danger" id={item.id} onClick={handleCartItemDeletion}>
+                                                    <span className="bi bi-trash"></span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>{cartPrice}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </aside>
             </section>
