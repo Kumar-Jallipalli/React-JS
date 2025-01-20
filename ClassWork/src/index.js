@@ -14,9 +14,10 @@ import { EventBinding } from './components/event-binding'
 import { TwoWayBindingEx } from './components/two-way-binding-ex'
 import { TwoWayBindingEx2 } from './components/two-way-binding-ex2'
 import { TwoWayClassBindDemo } from './components/state-Binding-class'
+import { StyleClassBindingEx } from './components/style-class-binding-ex'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <TwoWayClassBindDemo/>
+    <StyleClassBindingEx/>
 )
