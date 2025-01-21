@@ -16,9 +16,11 @@ import { TwoWayBindingEx2 } from './components/two-way-binding-ex2'
 import { TwoWayClassBindDemo } from './components/state-Binding-class'
 import { StyleClassBindingEx } from './components/style-class-binding-ex'
 import { FormikDemo } from './components/formik-demo'
+import { FormValidationEx1 } from './components/form-validation-ex1'
+import { YupValidationsEx1 } from './components/yup-validation-ex1'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <FormikDemo/>
+    <YupValidationsEx1/>
 )
