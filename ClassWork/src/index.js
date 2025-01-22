@@ -18,9 +18,10 @@ import { StyleClassBindingEx } from './components/style-class-binding-ex'
 import { FormikDemo } from './components/formik-demo'
 import { FormValidationEx1 } from './components/form-validation-ex1'
 import { YupValidationsEx1 } from './components/yup-validation-ex1'
+import { YupValidationsEx2 } from './components/yup-validation-ex2'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <YupValidationsEx1/>
+    <YupValidationsEx2/>
 )
