@@ -23,10 +23,9 @@ import { LifeCycleDemo } from './components/life-cycle-demo'
 import { ContextMemoryDemo } from './components/context-memory-demo'
 import { CookiesProvider } from 'react-cookie'
 import { CookiesDemo } from './components/cookies-demo'
+import { ReducerComponent } from './components/reducer'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <CookiesProvider>
-        <CookiesDemo/>
-    </CookiesProvider>
+    <ReducerComponent/>
 )
