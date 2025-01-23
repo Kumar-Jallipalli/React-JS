@@ -21,8 +21,12 @@ import { YupValidationsEx1 } from './components/yup-validation-ex1'
 import { YupValidationsEx2 } from './components/yup-validation-ex2'
 import { LifeCycleDemo } from './components/life-cycle-demo'
 import { ContextMemoryDemo } from './components/context-memory-demo'
+import { CookiesProvider } from 'react-cookie'
+import { CookiesDemo } from './components/cookies-demo'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <ContextMemoryDemo/>
+    <CookiesProvider>
+        <CookiesDemo/>
+    </CookiesProvider>
 )
