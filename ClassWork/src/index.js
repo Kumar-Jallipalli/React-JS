@@ -20,8 +20,9 @@ import { FormValidationEx1 } from './components/form-validation-ex1'
 import { YupValidationsEx1 } from './components/yup-validation-ex1'
 import { YupValidationsEx2 } from './components/yup-validation-ex2'
 import { LifeCycleDemo } from './components/life-cycle-demo'
+import { ContextMemoryDemo } from './components/context-memory-demo'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <LifeCycleDemo/>
+    <ContextMemoryDemo/>
 )
