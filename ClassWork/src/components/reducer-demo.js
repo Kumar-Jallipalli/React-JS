@@ -47,6 +47,7 @@ export function ReducerComponent () {
 
     return (
         <div>
+            {/* This is the same "State" variable returned by useReducer Hook, which contains current State Value */}
             <h2>Like Counter: {state.count} </h2>
             <button onClick={handleLike}>Like</button>
             <button onClick={handleUnLike}>unLike</button>
