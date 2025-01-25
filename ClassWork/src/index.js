@@ -26,8 +26,9 @@ import { CookiesDemo } from './components/cookies-demo'
 import { ReducerComponent } from './components/reducer-demo'
 import { ReducerComplexEx1 } from './components/reducer-complex-ex1'
 import { CustomSort } from './components/custom-hook-ex'
+import { JQueryAjaxDemo } from './components/jquery-ajax-demo'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <CustomSort/>
+    <JQueryAjaxDemo/>
 )
