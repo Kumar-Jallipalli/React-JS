@@ -25,8 +25,9 @@ import { CookiesProvider } from 'react-cookie'
 import { CookiesDemo } from './components/cookies-demo'
 import { ReducerComponent } from './components/reducer-demo'
 import { ReducerComplexEx1 } from './components/reducer-complex-ex1'
+import { CustomSort } from './components/custom-hook-ex'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <ReducerComplexEx1/>
+    <CustomSort/>
 )
